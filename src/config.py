@@ -27,6 +27,4 @@ IRIS_CANDIDATE_DEPTHS = [1, 3, None]
 IRIS_DEV_SIZE = 0.20
 IRIS_VAL_SIZE_OF_DEV = 0.25  # 0.25 * 0.80 = 0.20 of total
 
-# PDF & Notebook Output filenames
-PDF_REPORT_NAME = "Informe_Taller_Arboles.pdf"
-NOTEBOOK_NAME = "taller_arboles.ipynb"
+

@@ -1,7 +1,4 @@
 """
 Taller de Clasificación con Árboles de Decisión.
-Paquete principal de software modular.
+Módulos de Machine Learning para el taller de Inteligencia Artificial.
 """
-
-__version__ = "1.0.0"
-__author__ = "Ingeniería de Software & Inteligencia Artificial"

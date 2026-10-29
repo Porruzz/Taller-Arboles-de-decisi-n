@@ -2,54 +2,53 @@
 **Curso de Inteligencia Artificial**  
 *De las preguntas de un árbol a la evaluación de sus predicciones*
 
-Solución integral, reproducible y con arquitectura de software modular orientada a objetos (principios SOLID) para el taller de árboles de decisión.
+**Estudiante:** Santiago Parra Acuña  
+**Fecha:** Octubre 2026  
+
+Solución práctica, reproducible y modular para el taller de clasificación con árboles de decisión.
 
 ---
 
-## 🏛️ Arquitectura Modular del Software
+## 📁 Estructura del Proyecto
 
-El proyecto se estructuró bajo estándares de ingeniería de software profesional, desacoplando datos, matemáticas de impureza, modelos manuales, validación algorítmica, experimentación y generación de reportes:
+El código está organizado de forma limpia y modular, separando el caso sintético de diamantes y el experimento con el conjunto Iris:
 
 ```text
 Taller Arboles de decisión/
 ├── src/
 │   ├── __init__.py
-│   ├── config.py                 # Constantes, semillas, hiperparámetros y rutas
-│   ├── synthetic/                # Módulo para el Caso Sintético de Diamantes
+│   ├── config.py                 # Constantes, semillas y rutas del proyecto
+│   ├── synthetic/                # Módulo para el Caso de Diamantes
 │   │   ├── __init__.py
-│   │   ├── data.py               # Definición formal de datos (12 diamantes y N1-N4)
-│   │   ├── gini.py               # Fórmulas de Gini, partición ponderada y evaluación de splits
-│   │   ├── manual_tree.py        # Modelo OOP del árbol manual, reglas SI... ENTONCES... y trazador
-│   │   ├── metrics.py            # Métricas binarias (VP, VN, FP, FN), costos y desbalance 95/5
-│   │   └── sklearn_verifier.py   # Verificación con DecisionTreeClassifier y comparación
-│   ├── iris/                     # Módulo para el Experimento con Dataset Iris
-│   │   ├── __init__.py
-│   │   ├── dataset.py            # Carga y partición estratificada 60% Train / 20% Val / 20% Test
-│   │   ├── experiment.py         # Entrenamiento de candidatos (1, 3, None) y regla de selección
-│   │   ├── evaluation.py         # Evaluación en Test y benchmark contra DummyClassifier
-│   │   └── visualization.py      # Diagramas del árbol seleccionado y matriz de confusión
-│   └── report/                   # Módulo de Entregables
+│   │   ├── data.py               # Dataset sintético de 12 diamantes y casos nuevos N1-N4
+│   │   ├── gini.py               # Cálculo de impureza Gini, particiones y Delta G
+│   │   ├── manual_tree.py        # Modelo del árbol manual y reglas SI... ENTONCES...
+│   │   ├── metrics.py            # Métricas de evaluación (VP, VN, FP, FN, F1) y costos
+│   │   └── sklearn_verifier.py   # Verificación con DecisionTreeClassifier de scikit-learn
+│   └── iris/                     # Módulo para el Experimento con Iris
 │       ├── __init__.py
-│       ├── pdf_generator.py      # Generador de informe formal de 8 páginas en ReportLab
-│       └── notebook_generator.py # Generador programático del Jupyter Notebook (.ipynb)
-├── figures/                      # Gráficos generados en alta resolución (300 DPI)
-│   ├── manual_tree_diagram.png   # Diagrama arquitectónico del árbol manual
-│   ├── sklearn_diamond_tree.png  # Árbol de Scikit-Learn sobre diamantes
-│   ├── iris_best_tree.png        # Árbol ganador sobre Iris (max_depth=None, Efectiva=4)
-│   └── iris_confusion_matrix.png # Matriz de confusión en conjunto de prueba
-├── main.py                       # Orquestador y punto de entrada CLI
-├── taller_arboles.ipynb          # Notebook interactivo y ejecutable
-├── Informe_Taller_Arboles.pdf    # Informe formal completo para entrega
-├── Taller_Arboles.pdf            # Enunciado original del taller
-└── README.md                     # Documentación técnica del proyecto
+│       ├── dataset.py            # Carga y partición estratificada 60% Train / 20% Val / 20% Test
+│       ├── experiment.py         # Entrenamiento de modelos (depths 1, 3, None) y selección
+│       ├── evaluation.py         # Evaluación en Test y comparación con DummyClassifier
+│       └── visualization.py      # Visualización del árbol seleccionado y matriz de confusión
+├── figures/                      # Gráficos exportados
+│   ├── manual_tree_diagram.png   # Estructura del árbol manual
+│   ├── sklearn_diamond_tree.png  # Árbol de Scikit-Learn
+│   ├── iris_best_tree.png        # Árbol seleccionado para Iris
+│   └── iris_confusion_matrix.png # Matriz de confusión en Test
+├── main.py                       # Script principal de ejecución
+├── taller_arboles.ipynb          # Notebook con el análisis y código interactivo
+├── Informe_Taller_Arboles.pdf    # Informe formal en PDF
+├── Taller_Arboles.pdf            # Enunciado del taller
+└── README.md                     # Documentación del proyecto
 ```
 
 ---
 
 ## 🚀 Instrucciones de Ejecución
 
-### 1. Ejecución Automatizada de la Pipeline Completa
-Para ejecutar todos los cálculos, generar todas las gráficas, crear el Jupyter Notebook y compilar el informe PDF formal:
+### 1. Ejecución del Script Principal
+Para ejecutar todos los cálculos, entrenar los modelos y exportar las gráficas:
 
 ```bash
 python main.py
